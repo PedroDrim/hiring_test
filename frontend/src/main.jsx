@@ -6,6 +6,7 @@ import Register from './Login/Register';
 import Play from './MemoryCardGame/Play';
 import MemoryCardGame from './MemoryCardGame/MemoryCardGame';
 import Congratulations from "./MemoryCardGame/Congratulation";
+import { DifficultyEnums } from './Utils/DifficultyEnums';
 
 // Creating "App" Tag
 const App = () => {
@@ -29,13 +30,13 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/play" element={isAuthenticated ? <Play /> : <Navigate to="/login" />}/>
 
-        <Route path="/easy" element={isAuthenticated ? <MemoryCardGame difficulty="easy" /> : <Navigate to="/login" />}/>
-        <Route path="/medium" element={isAuthenticated ? <MemoryCardGame difficulty="medium" /> : <Navigate to="/login" />}/>  
-        <Route path="/hard" element={isAuthenticated ? <MemoryCardGame difficulty="hard" /> : <Navigate to="/login" />}/>
+        <Route path="/easy" element={isAuthenticated ? <MemoryCardGame difficulty={DifficultyEnums.easy} /> : <Navigate to="/login" />}/>
+        <Route path="/medium" element={isAuthenticated ? <MemoryCardGame difficulty={DifficultyEnums.medium} /> : <Navigate to="/login" />}/>  
+        <Route path="/hard" element={isAuthenticated ? <MemoryCardGame difficulty={DifficultyEnums.hard} /> : <Navigate to="/login" />}/>
 
-        <Route path="/congratulations-easy" element={isAuthenticated ? <Congratulations difficulty="easy" /> : <Navigate to="/login" />}/>
-        <Route path="/congratulations-medium" element={isAuthenticated ? <Congratulations difficulty="medium" /> : <Navigate to="/login" />}/>
-        <Route path="/congratulations-hard" element={isAuthenticated ? <Congratulations difficulty="hard" /> : <Navigate to="/login" />}/>
+        <Route path="/congratulations-easy" element={isAuthenticated ? <Congratulations difficulty={DifficultyEnums.easy} /> : <Navigate to="/login" />}/>
+        <Route path="/congratulations-medium" element={isAuthenticated ? <Congratulations difficulty={DifficultyEnums.medium} /> : <Navigate to="/login" />}/>
+        <Route path="/congratulations-hard" element={isAuthenticated ? <Congratulations difficulty={DifficultyEnums.hard} /> : <Navigate to="/login" />}/>
 
         <Route path="/" element={<Navigate to="/login" />} />
       </Routes>

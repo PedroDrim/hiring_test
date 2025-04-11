@@ -1,4 +1,6 @@
-export const memoryCardHardValues = {
+import { DifficultyEnums } from "./DifficultyEnums"
+
+const hardValues = {
     // Card Images
     cardImages: [
         { id: 1, image: "/images/earth.png" },
@@ -16,6 +18,7 @@ export const memoryCardHardValues = {
     ],
 
     cardSize: 120,
+    saveApiEnum: "Hard",
   
     // Audio files for matching and final congratulation
     matchAudioFiles: [
@@ -26,10 +29,15 @@ export const memoryCardHardValues = {
         "/audio/Amazing.mp3",
     ],
     
-    congratsAudio: "/audio/congrats.mp3" // Final congratulations audio
+    congratsAudio: "/audio/congrats.mp3", // Final congratulations audio
+
+    gridSxDifficulty: { maxWidth: 600, marginTop: "-80px" },
+    gridSpacingDifficulty: 6,
+
+    congratulationsRedirectURI: "/congratulations-hard"
 }
 
-export const memoryCardMediumValues = {
+const mediumValues = {
     // Card Images
     cardImages: [
         { id: 1, image: "/images/meteor.png" },
@@ -41,6 +49,7 @@ export const memoryCardMediumValues = {
     ],
 
     cardSize: 160,
+    saveApiEnum: "Normal",
 
     // Audio files for matching and final congratulation
     matchAudioFiles: [
@@ -48,10 +57,15 @@ export const memoryCardMediumValues = {
         "/audio/NiceJob.mp3",
     ],
 
-    congratsAudio: "/audio/congrats.mp3" // Final congratulations audio
+    congratsAudio: "/audio/congrats.mp3", // Final congratulations audio
+
+    gridSxDifficulty: { maxWidth: 700, marginTop: "-50px" },
+    gridSpacingDifficulty: 10,
+
+    congratulationsRedirectURI: "/congratulations-medium"
 }
 
-export const memoryCardEasyValues = {
+const easyValues = {
     // Card Images
     cardImages: [
         { id: 1, image: "/images/meteor.png" },
@@ -61,6 +75,7 @@ export const memoryCardEasyValues = {
     ],
 
     cardSize: 220,
+    saveApiEnum: "Easy",
 
     // Audio files for matching and final congratulation
     matchAudioFiles: [
@@ -68,5 +83,17 @@ export const memoryCardEasyValues = {
     ],
 
     
-    congratsAudio: "/audio/congrats.mp3" // Final congratulations audio
+    congratsAudio: "/audio/congrats.mp3", // Final congratulations audio
+
+    gridSxDifficulty: { maxWidth: 700, marginTop: "-120px" },
+    gridSpacingDifficulty: 8,
+
+    congratulationsRedirectURI: "/congratulations-easy"
 }
+
+const MemoryCardConstants = {}
+MemoryCardConstants[DifficultyEnums.easy] = easyValues
+MemoryCardConstants[DifficultyEnums.meduim] = mediumValues
+MemoryCardConstants[DifficultyEnums.hard] = hardValues
+
+export default MemoryCardConstants

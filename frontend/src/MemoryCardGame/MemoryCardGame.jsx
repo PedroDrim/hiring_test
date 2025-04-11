@@ -5,7 +5,7 @@ import bgMusic from "../assets/audio/memory-bg.mp3"
 import axios from "axios"
 import CardUtils from "../Utils/CardUtils"
 import { StyledGameContainer, PixelButton, PixelBox, PixelTimerBox, PixelTypography, PixelButtonModal, modalStyle } from "../Utils/CardStyles"
-import { memoryCardEasyValues, memoryCardMediumValues, memoryCardHardValues } from "../Utils/MemoryCardConstants"
+import MemoryCardConstants from "../Utils/MemoryCardConstants"
 import Card from "./Card"
 
 const saveGameData = async (gameData) => {
@@ -38,48 +38,17 @@ const MemoryCardGame = ({difficulty}) => {
   const [openModal, setOpenModal] = useState(false)
 
   // ================================================== //
-  // Setting spacing, xs and sx properties based on difficulty
-  let gridSxDifficulty = null
-  let gridSpacingDifficulty = null
-  let gridXsDifficulty = null
+  const gridSxDifficulty = MemoryCardConstants[difficulty].gridSxDifficulty
+  const gridSpacingDifficulty = MemoryCardConstants[difficulty].gridSpacingDifficulty
 
-  let cardImages = null
-  let matchAudioFiles = null
-  let congratsAudio = null
+  const cardImages = MemoryCardConstants[difficulty].cardImages
+  const matchAudioFiles = MemoryCardConstants[difficulty].matchAudioFiles
+  const congratsAudio = MemoryCardConstants[difficulty].congratsAudio
 
-  let cardSize = null
+  const cardSize = MemoryCardConstants[difficulty].cardSize
+  const saveApiEnum = MemoryCardConstants[difficulty].saveApiEnum
 
-  switch(difficulty) {
-    case "easy":
-      gridSxDifficulty = { maxWidth: 600, marginTop: "-80px" }
-      gridSpacingDifficulty = 6
-
-      cardImages = memoryCardEasyValues.cardImages
-      matchAudioFiles = memoryCardEasyValues.matchAudioFiles
-      congratsAudio = memoryCardEasyValues.congratsAudio
-      cardSize = memoryCardEasyValues.cardSize
-      break
-
-    case "medium":
-      gridSxDifficulty = { maxWidth: 700, marginTop: "-50px" }
-      gridSpacingDifficulty = 10
-
-      cardImages = memoryCardMediumValues.cardImages
-      matchAudioFiles = memoryCardMediumValues.matchAudioFiles
-      congratsAudio = memoryCardMediumValues.congratsAudio
-      cardSize = memoryCardMediumValues.cardSize
-      break
-
-    case "hard":
-      gridSxDifficulty = { maxWidth: 700, marginTop: "-120px" }
-      gridSpacingDifficulty = 8
-
-      cardImages = memoryCardHardValues.cardImages
-      matchAudioFiles = memoryCardHardValues.matchAudioFiles
-      congratsAudio = memoryCardHardValues.congratsAudio
-      cardSize = memoryCardHardValues.cardSize
-      break
-  }  
+  const congratulationsRedirectURI = MemoryCardConstants[difficulty].congratulationsRedirectURI
   // ================================================== //
 
   const handleSaveNewGame = () => {
@@ -87,7 +56,7 @@ const MemoryCardGame = ({difficulty}) => {
         userID,
         gameDate: new Date(),
         failed: failedAttempts,
-        difficulty: difficulty,
+        difficulty: saveApiEnum,
         completed: 0,
         timeTaken: timer,
     })
@@ -105,9 +74,7 @@ const MemoryCardGame = ({difficulty}) => {
 
     const mouseDisableDuration = 2000
     setMouseDisabled(true)
-    setTimeout(() => {
-      setMouseDisabled(false)  // Re-enable mouse events after mouseDisableDuration
-    }, mouseDisableDuration)
+    setTimeout(() => setMouseDisabled(false), mouseDisableDuration)
 
     setTimeout(() => {
       setInitialReveal(false)
@@ -189,13 +156,13 @@ const MemoryCardGame = ({difficulty}) => {
                     userID,
                     gameDate: new Date(),
                     failed: failedAttempts,
-                    difficulty: difficulty,
+                    difficulty: saveApiEnum,
                     completed: 1,  
                     timeTaken: timer,
                 })
                 
                 localStorage.setItem("gameCompleted", "true")
-                setTimeout(() => navigate("/congratulations-hard"), 1000)
+                setTimeout(() => navigate(congratulationsRedirectURI), 1000)
             } catch (error) {
                 console.error("Error saving game data:", error)
             }
@@ -205,13 +172,14 @@ const MemoryCardGame = ({difficulty}) => {
     }
   }, [matchedCards, cards.length, navigate, sfxVolume, failedAttempts, timer])
 
-
+  // Validating userID
   const userID = localStorage.getItem("userID") // ✅ Fetch from local storage or auth context
   if (!userID) {
     console.error("Error: userID is missing.")
     return
   }
 
+  // Action for dealing with the card click
   const handleCardClick = (card) => {
     if (!matchedCards.includes(card.id) && flippedCards.length < 2 && !flippedCards.some((c) => c.id === card.id)) {
       setFlippedCards((prev) => [...prev, card])

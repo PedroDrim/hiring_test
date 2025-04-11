@@ -29,42 +29,31 @@ exports.saveGameData = async (req, res) => {
     }
 };
 
-exports.getHighScoreData = async (req, res) => {
+exports.getScoreHistory = async (req, res) => {
     try {
         const difficulty = req.params.difficulty
+        const uid = req.params.uid
 
-        if (difficulty == null || difficulty == "" || typeof difficulty !== 'string') {
+        if (difficulty == null || difficulty == "" || typeof difficulty !== 'string' || uid == null || uid == "" || typeof uid !== 'string') {
             return res.status(400).json({ message: 'Invalid field type' });
         }
 
-        const query = await Save.aggregate([
-            {$match: {
-                difficulty: {$eq: difficulty}, 
+        const query = await Save.find(
+            {
+                difficulty: {$eq: difficulty},
+                userID: {$eq: uid},
                 completed: {$gt: 0}
-            }},
-
-            {$lookup: {
-                from: "users",
-                localField: "userID",
-                foreignField: "_id",
-                as: "userData"
-            }},
-
-            {$unwind: "$userData"}, 
-
-            {$project: {
+            },
+            {
                 _id: 0,
-                username: "$userData.username",
                 failed: 1,
+                gameDate: 1,
                 completed: 1,
                 timeTaken: 1,
-            }},
-
-            {$sort: {
-                completed: -1,
-                timeTaken: 1
-            }}
-        ])
+            }
+        ).sort({
+            gameDate: -1
+        })
         
         res.status(201).json(query);
     } catch (error) {
