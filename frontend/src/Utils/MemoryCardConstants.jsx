@@ -34,7 +34,8 @@ const hardValues = {
     gridSxDifficulty: { maxWidth: 600, marginTop: "-80px" },
     gridSpacingDifficulty: 6,
 
-    congratulationsRedirectURI: "/congratulations-hard"
+    congratulationsRedirectURI: "/congratulations-hard",
+    gameRedirectURI: "/hard"
 }
 
 const mediumValues = {
@@ -62,7 +63,8 @@ const mediumValues = {
     gridSxDifficulty: { maxWidth: 700, marginTop: "-50px" },
     gridSpacingDifficulty: 10,
 
-    congratulationsRedirectURI: "/congratulations-medium"
+    congratulationsRedirectURI: "/congratulations-medium",
+    gameRedirectURI: "/medium"
 }
 
 const easyValues = {
@@ -88,12 +90,13 @@ const easyValues = {
     gridSxDifficulty: { maxWidth: 700, marginTop: "-120px" },
     gridSpacingDifficulty: 8,
 
-    congratulationsRedirectURI: "/congratulations-easy"
+    congratulationsRedirectURI: "/congratulations-easy",
+    gameRedirectURI: "/easy"
 }
 
 const MemoryCardConstants = {}
 MemoryCardConstants[DifficultyEnums.easy] = easyValues
-MemoryCardConstants[DifficultyEnums.meduim] = mediumValues
+MemoryCardConstants[DifficultyEnums.medium] = mediumValues
 MemoryCardConstants[DifficultyEnums.hard] = hardValues
 
 export default MemoryCardConstants
