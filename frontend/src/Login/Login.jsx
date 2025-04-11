@@ -108,7 +108,7 @@ const Login = ({ onLogin }) => {
       <div className={styles.container}>
         <form>
           <PixelTypography variant="h3" style={{ justifySelf: "center" }}>
-            Login
+            Login Authentication
           </PixelTypography>
 
           <PixelInput

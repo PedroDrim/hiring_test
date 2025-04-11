@@ -137,7 +137,7 @@ const Congratulations = ({ difficulty }) => {
           <PixelTypography variant="h6">
             <Grid2 container spacing={2} justifyContent="center" style={{overflowY: "auto", maxHeight: "300px"}}>
               {scores.map((score) => (
-                <Grid2 key={score.gameDate} sx={12}>
+                <Grid2 key={score.gameDate}>
                   Solved in {score.timeTaken}s with {score.failed} mistakes
                 </Grid2>
               ))}

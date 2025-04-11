@@ -95,22 +95,20 @@ const Register = () => {
       <div className={styles.container}>
         <form>
           <PixelTypography variant="h3" style={{ justifySelf: "center" }}>
-            Register
+            Account Register
           </PixelTypography>
 
           <PixelInput
             type="text"
             placeholder="Username"
             value={formData.username}
-            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-          />
+            onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
 
           <PixelInput
             type="password"
             placeholder="Password"
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-          />
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
 
           <div style={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center' }}>
             <PixelButton onClick={handleSubmit} sx={{ margin: 2 }}>
