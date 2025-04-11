@@ -133,9 +133,9 @@ const Congratulations = ({ difficulty }) => {
       </PixelBox>
 
       <Modal open={openModal} onClose={handleBackButton}>
-        <Box sx={modalStyle} style={{width: "80vw"}}>
+        <Box sx={modalStyle} style={{width: "60vw"}}>
           <PixelTypography variant="h6">
-            <Grid2 container direction="column" spacing={2} justifyContent="center">
+            <Grid2 container spacing={2} justifyContent="center" style={{overflowY: "auto", maxHeight: "300px"}}>
               {scores.map((score) => (
                 <Grid2 key={score.gameDate} sx={12}>
                   Solved in {score.timeTaken}s with {score.failed} mistakes

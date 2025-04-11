@@ -105,8 +105,8 @@ const MemoryCardGame = ({difficulty}) => {
         setMusicStarted(true)
       }
     }
-    document.addEventListener("click", handleFirstClick)
 
+    document.addEventListener("click", handleFirstClick)
     return () => document.removeEventListener("click", handleFirstClick)
   }, [])
 
@@ -213,7 +213,6 @@ const MemoryCardGame = ({difficulty}) => {
           New Game
         </PixelButton>
       </Box>
-
 
       <Modal open={openModal} onClose={handleModalNo}>
         <Box sx={modalStyle}>

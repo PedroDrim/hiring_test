@@ -26,7 +26,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login onLogin={handleLogin} onLogout={handleLogout}/>} />
+        <Route path="/login" element={<Login onLogin={handleLogin}/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/play" element={isAuthenticated ? <Play /> : <Navigate to="/login" />}/>
 

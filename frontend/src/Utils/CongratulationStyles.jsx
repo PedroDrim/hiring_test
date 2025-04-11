@@ -17,7 +17,26 @@ export const PixelBox = styled(Box)(({ theme }) => ({
     fontFamily: '"Press Start 2P", cursive',
     position: "relative",
 }))
-  
+
+export const PixelInput = styled("input")(({ theme }) => ({
+  padding: "12px 16px",
+  marginTop: "5px",
+  border: "2px solid #000",
+  borderRadius: "4px",
+  backgroundColor: "#fff",
+  fontFamily: '"Press Start 2P", cursive',
+  fontSize: "14px",
+  outline: "none",
+  width: "100%",
+  boxSizing: "border-box",
+
+  // Efeito de foco
+  "&:focus": {
+    borderColor: "#00d9ff",
+    backgroundColor: "#f0f0f0",
+  },
+}));
+
 // Image Container Style
 export const ImageContainer = styled(Box)(() => ({
     position: "relative", 

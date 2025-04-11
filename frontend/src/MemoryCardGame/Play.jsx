@@ -69,7 +69,7 @@ const Play = () => {
   const [PlaymodalIsOpen, setModalPlayIsOpen] = useState(false);
   const [difficulty, setDifficulty] = useState(null);
   const [isCalmMode, setIsCalmMode] = useState(false);
-  
+
   const [bgVolume, setBgVolume] = useState(
     localStorage.getItem("bgVolume") !== null ? parseInt(localStorage.getItem("bgVolume"), 10) : 50
   );
@@ -299,20 +299,6 @@ const Play = () => {
             className="volume-slider"
           />
         </div>
-
-        {/* <div className="calm-mode">
-          <h2 className={`${isCalmMode ? "calm-mode-label" : ""} modal-h2`}>
-            Calm Mode
-          </h2>
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={isCalmMode}
-              onChange={toggleCalmMode}
-            />
-            <span className="slider round"></span>
-          </label>
-        </div> */}
       </Modal>
 
       <Modal
@@ -351,9 +337,8 @@ const Play = () => {
               handleDifficultySelect("green");
               playClickSound();
             }}
-            className={`difficulty-button green ${
-              difficulty === "green" && !isCalmMode ? "selected" : ""
-            } ${isCalmMode && difficulty === "green" ? "calm-selected" : ""}`}
+            className={`difficulty-button green ${difficulty === "green" && !isCalmMode ? "selected" : ""
+              } ${isCalmMode && difficulty === "green" ? "calm-selected" : ""}`}
             onMouseEnter={playHoverSound}
           >
             Easy
@@ -363,9 +348,8 @@ const Play = () => {
               handleDifficultySelect("yellow");
               playClickSound();
             }}
-            className={`difficulty-button yellow ${
-              difficulty === "yellow" && !isCalmMode ? "selected" : ""
-            } ${isCalmMode && difficulty === "yellow" ? "calm-selected" : ""}`}
+            className={`difficulty-button yellow ${difficulty === "yellow" && !isCalmMode ? "selected" : ""
+              } ${isCalmMode && difficulty === "yellow" ? "calm-selected" : ""}`}
             onMouseEnter={playHoverSound}
           >
             Normal
@@ -375,9 +359,8 @@ const Play = () => {
               handleDifficultySelect("red");
               playClickSound();
             }}
-            className={`difficulty-button red ${
-              difficulty === "red" && !isCalmMode ? "selected" : ""
-            } ${isCalmMode && difficulty === "red" ? "calm-selected" : ""}`}
+            className={`difficulty-button red ${difficulty === "red" && !isCalmMode ? "selected" : ""
+              } ${isCalmMode && difficulty === "red" ? "calm-selected" : ""}`}
             onMouseEnter={playHoverSound}
           >
             Hard
