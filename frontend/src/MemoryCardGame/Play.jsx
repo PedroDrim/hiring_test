@@ -195,7 +195,7 @@ const Play = () => {
       }
     } else {
       if (difficulty === "red") {
-        navigate("/memory-card-game");
+        navigate("/hard");
       } else if (difficulty === "yellow") {
         navigate("/medium");
       } else if (difficulty === "green") {
