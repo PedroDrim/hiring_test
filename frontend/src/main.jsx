@@ -1,5 +1,6 @@
 import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import Modal from 'react-modal'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Login/Login';
 import Register from './Login/Register';
@@ -46,6 +47,8 @@ const App = () => {
 
 // Getting root element and rendering 'App'
 const root = document.getElementById('root')
+
+Modal.setAppElement(root)
 createRoot(root).render(
   <StrictMode>
     <App />
