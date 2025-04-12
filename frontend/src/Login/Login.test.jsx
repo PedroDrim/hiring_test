@@ -4,7 +4,7 @@
 
 import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { MemoryRouter, BrowserRouter, useNavigate } from 'react-router-dom'
+import { MemoryRouter, BrowserRouter } from 'react-router-dom'
 import Login from './Login'
 import axios from 'axios'
 
