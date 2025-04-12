@@ -11,7 +11,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "tailwind:init": "npx tailwindcss init"
+    "tailwind:init": "npx tailwindcss init",
+    "deploy:build": "http-server dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -20,6 +21,7 @@
     "@react-spring/web": "^9.7.5",
     "axios": "^1.7.9",
     "framer-motion": "^12.0.5",
+    "http-server": "^14.1.1",
     "lucide-react": "^0.474.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

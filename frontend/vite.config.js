@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import configs from 'react-x-twitter';
 
 export default defineConfig({
-  plugins: [react(), configs({development: true})],
+  plugins: [react()],
   assetsInclude: ['**/*.mp3'], // Allow Vite to handle .mp3 files as static assets
   server: {
     hmr: {

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/MemoryCardGame/Play.jsx</title>
+    <title>Code coverage report for src/MemoryCardGame/PlayModal.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/MemoryCardGame</a> Play.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/MemoryCardGame</a> PlayModal.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/128</span>
+                <span class='fraction'>0/124</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/128</span>
+                <span class='fraction'>0/124</span>
             </div>
         
             
@@ -186,12 +186,7 @@
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -314,140 +309,130 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import React, { useState, useRef, useEffect } from "react"</span></span></span>
-<span class="cstat-no" title="statement not covered" >import backgroundGif from "../assets/images/play.gif"</span>
-<span class="cstat-no" title="statement not covered" >import calmBackground from "../assets/images/calm-wallpaper.jpg"</span>
-<span class="cstat-no" title="statement not covered" >import backgroundMusic from "../assets/audio/background-music.mp3"</span>
-<span class="cstat-no" title="statement not covered" >import buttonHoverSound from "../assets/audio/button-hover.mp3"</span>
-<span class="cstat-no" title="statement not covered" >import buttonClickSound from "../assets/audio/button-click.mp3"</span>
-<span class="cstat-no" title="statement not covered" >import SettingsModal from "./SettingsModal"</span>
-<span class="cstat-no" title="statement not covered" >import InstructionsModal from "./InstructionsModal"</span>
-<span class="cstat-no" title="statement not covered" >import PlayModal from "./PlayModal"</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import React, { useState } from "react"</span></span></span>
+<span class="cstat-no" title="statement not covered" >import Modal from "react-modal"</span>
+<span class="cstat-no" title="statement not covered" >import { X } from "lucide-react"</span>
+<span class="cstat-no" title="statement not covered" >import { useNavigate } from "react-router-dom"</span>
 <span class="cstat-no" title="statement not covered" >import "./Play.css"</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const Play = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false)</span>
-<span class="cstat-no" title="statement not covered" >  const [instructionsModalIsOpen, setInstructionsModalIsOpen] = useState(false)</span>
-<span class="cstat-no" title="statement not covered" >  const [playModalIsOpen, setPlayModalIsOpen] = useState(false)</span>
-<span class="cstat-no" title="statement not covered" >  const [isCalmMode, setIsCalmMode] = useState(false)</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const [bgVolume, setBgVolume] = useState(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const saved = localStorage.getItem("bgVolume")</span>
-<span class="cstat-no" title="statement not covered" >    return saved !== null ? parseInt(saved, 10) : 50</span>
-<span class="cstat-no" title="statement not covered" >  })</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const [sfxVolume, setSfxVolume] = useState(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const saved = localStorage.getItem("sfxVolume")</span>
-<span class="cstat-no" title="statement not covered" >    return saved !== null ? parseInt(saved, 10) : 50</span>
-<span class="cstat-no" title="statement not covered" >  })</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const bgAudioRef = useRef(null)</span>
-<span class="cstat-no" title="statement not covered" >  const hoverAudioRef = useRef(null)</span>
-<span class="cstat-no" title="statement not covered" >  const clickAudioRef = useRef(null)</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    bgAudioRef.current = new Audio(backgroundMusic)</span>
-<span class="cstat-no" title="statement not covered" >    hoverAudioRef.current = new Audio(buttonHoverSound)</span>
-<span class="cstat-no" title="statement not covered" >    clickAudioRef.current = new Audio(buttonClickSound)</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const bgAudio = bgAudioRef.current</span>
-<span class="cstat-no" title="statement not covered" >    bgAudio.loop = true</span>
-<span class="cstat-no" title="statement not covered" >    bgAudio.volume = bgVolume / 100</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const startMusic = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      bgAudio.play().catch((err) =&gt; console.error("Autoplay error:", err))</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    document.addEventListener("click", startMusic, { once: true })</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      document.removeEventListener("click", startMusic)</span>
-<span class="cstat-no" title="statement not covered" >      bgAudio.pause()</span>
-<span class="cstat-no" title="statement not covered" >      bgAudio.currentTime = 0</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }, [])</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (bgAudioRef.current) bgAudioRef.current.volume = bgVolume / 100</span>
-<span class="cstat-no" title="statement not covered" >  }, [bgVolume])</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (hoverAudioRef.current) hoverAudioRef.current.volume = sfxVolume / 100</span>
-<span class="cstat-no" title="statement not covered" >    if (clickAudioRef.current) clickAudioRef.current.volume = sfxVolume / 100</span>
-<span class="cstat-no" title="statement not covered" >  }, [sfxVolume])</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const playHoverSound = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (hoverAudioRef.current) {</span>
-<span class="cstat-no" title="statement not covered" >      hoverAudioRef.current.currentTime = 0</span>
-<span class="cstat-no" title="statement not covered" >      hoverAudioRef.current.play().catch(() =&gt; { })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const playClickSound = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (clickAudioRef.current) {</span>
-<span class="cstat-no" title="statement not covered" >      clickAudioRef.current.currentTime = 0</span>
-<span class="cstat-no" title="statement not covered" >      clickAudioRef.current.play().catch(() =&gt; { })</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const handleBgVolumeChange = (volume) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setBgVolume(volume)</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem("bgVolume", volume)</span>
-<span class="cstat-no" title="statement not covered" >    if (bgAudioRef.current) bgAudioRef.current.volume = volume / 100</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const handleSfxVolumeChange = (volume) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setSfxVolume(volume)</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem("sfxVolume", volume)</span>
-<span class="cstat-no" title="statement not covered" >    if (clickAudioRef.current) clickAudioRef.current.volume = volume / 100</span>
-<span class="cstat-no" title="statement not covered" >    if (hoverAudioRef.current) hoverAudioRef.current.volume = volume / 100</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className="background-container" style={{</span>
-<span class="cstat-no" title="statement not covered" >      backgroundImage: `url(${isCalmMode ? calmBackground : backgroundGif})`,</span>
-<span class="cstat-no" title="statement not covered" >    }}&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;h1 className={`game-title ${isCalmMode ? "calm-title" : ""}`}&gt;WonderCards&lt;/h1&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="button-container"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button className={`game-button ${isCalmMode ? "calm-button" : ""}`} onClick={() =&gt; { setPlayModalIsOpen(true); playClickSound() }} onMouseEnter={playHoverSound}&gt;Play&lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button className={`game-button ${isCalmMode ? "calm-button" : ""}`} onClick={() =&gt; { setInstructionsModalIsOpen(true); playClickSound() }} onMouseEnter={playHoverSound}&gt;Instructions&lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button className={`game-button ${isCalmMode ? "calm-button" : ""}`} onClick={() =&gt; { setSettingsModalIsOpen(true); playClickSound() }} onMouseEnter={playHoverSound}&gt;Settings&lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;SettingsModal</span>
-<span class="cstat-no" title="statement not covered" >        isOpen={settingsModalIsOpen}</span>
-<span class="cstat-no" title="statement not covered" >        onRequestClose={() =&gt; setSettingsModalIsOpen(false)}</span>
-<span class="cstat-no" title="statement not covered" >        isCalmMode={isCalmMode}</span>
-<span class="cstat-no" title="statement not covered" >        playClickSound={playClickSound}</span>
-<span class="cstat-no" title="statement not covered" >        onBgVolumeChange={handleBgVolumeChange}</span>
-<span class="cstat-no" title="statement not covered" >        onSfxVolumeChange={handleSfxVolumeChange}</span>
-<span class="cstat-no" title="statement not covered" >        initialBgVolume={bgVolume}</span>
-<span class="cstat-no" title="statement not covered" >        initialSfxVolume={sfxVolume} /&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;InstructionsModal</span>
-<span class="cstat-no" title="statement not covered" >        isOpen={instructionsModalIsOpen}</span>
-<span class="cstat-no" title="statement not covered" >        onRequestClose={() =&gt; setInstructionsModalIsOpen(false)}</span>
-<span class="cstat-no" title="statement not covered" >        isCalmMode={isCalmMode}</span>
-<span class="cstat-no" title="statement not covered" >        playClickSound={playClickSound} /&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;PlayModal</span>
-<span class="cstat-no" title="statement not covered" >        isOpen={playModalIsOpen}</span>
-<span class="cstat-no" title="statement not covered" >        onRequestClose={() =&gt; setPlayModalIsOpen(false)}</span>
-<span class="cstat-no" title="statement not covered" >        isCalmMode={isCalmMode}</span>
-<span class="cstat-no" title="statement not covered" >        playClickSound={playClickSound}</span>
-<span class="cstat-no" title="statement not covered" >        playHoverSound={playHoverSound} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >  )</span>
+<span class="cstat-no" title="statement not covered" >const modalPlayStyles = {</span>
+<span class="cstat-no" title="statement not covered" >    overlay: {</span>
+<span class="cstat-no" title="statement not covered" >        backgroundColor: "rgba(0, 0, 0, 0.7)",</span>
+<span class="cstat-no" title="statement not covered" >        zIndex: 999,</span>
+<span class="cstat-no" title="statement not covered" >        display: "flex",</span>
+<span class="cstat-no" title="statement not covered" >        alignItems: "center",</span>
+<span class="cstat-no" title="statement not covered" >        justifyContent: "center",</span>
+<span class="cstat-no" title="statement not covered" >        overflow: "hidden",</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    content: {</span>
+<span class="cstat-no" title="statement not covered" >        backgroundColor: "#1e1e2e",</span>
+<span class="cstat-no" title="statement not covered" >        border: "2px solid #4a4e69",</span>
+<span class="cstat-no" title="statement not covered" >        borderRadius: "20px",</span>
+<span class="cstat-no" title="statement not covered" >        padding: "40px",</span>
+<span class="cstat-no" title="statement not covered" >        maxWidth: "600px",</span>
+<span class="cstat-no" title="statement not covered" >        height: "200px",</span>
+<span class="cstat-no" title="statement not covered" >        width: "90%",</span>
+<span class="cstat-no" title="statement not covered" >        color: "#fff",</span>
+<span class="cstat-no" title="statement not covered" >        textAlign: "center",</span>
+<span class="cstat-no" title="statement not covered" >        position: "absolute",</span>
+<span class="cstat-no" title="statement not covered" >        top: "50%",</span>
+<span class="cstat-no" title="statement not covered" >        left: "50%",</span>
+<span class="cstat-no" title="statement not covered" >        transform: "translate(-50%, -50%)",</span>
+<span class="cstat-no" title="statement not covered" >        overflow: "hidden",</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export default Play</span>
-&nbsp;</pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" >const difficulties = [</span>
+<span class="cstat-no" title="statement not covered" >    { key: "green", label: "Easy" },</span>
+<span class="cstat-no" title="statement not covered" >    { key: "yellow", label: "Normal" },</span>
+<span class="cstat-no" title="statement not covered" >    { key: "red", label: "Hard" },</span>
+<span class="cstat-no" title="statement not covered" >]</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >const PlayModal = ({</span>
+<span class="cstat-no" title="statement not covered" >    isOpen,</span>
+<span class="cstat-no" title="statement not covered" >    onRequestClose,</span>
+<span class="cstat-no" title="statement not covered" >    isCalmMode,</span>
+<span class="cstat-no" title="statement not covered" >    playClickSound,</span>
+<span class="cstat-no" title="statement not covered" >    playHoverSound,</span>
+<span class="cstat-no" title="statement not covered" >}) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const navigate = useNavigate()</span>
+<span class="cstat-no" title="statement not covered" >    const [difficulty, setDifficulty] = useState(null)</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const handlePlay = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        playClickSound()</span>
+<span class="cstat-no" title="statement not covered" >        const userID = localStorage.getItem("userID")</span>
+<span class="cstat-no" title="statement not covered" >        if (!userID) {</span>
+<span class="cstat-no" title="statement not covered" >            navigate("/login")</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        if (difficulty === null) {</span>
+<span class="cstat-no" title="statement not covered" >            onRequestClose()</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        localStorage.setItem("gameStarted", "true")</span>
+<span class="cstat-no" title="statement not covered" >        const routes = {</span>
+<span class="cstat-no" title="statement not covered" >            green: isCalmMode ? "/calm-easy" : "/easy",</span>
+<span class="cstat-no" title="statement not covered" >            yellow: isCalmMode ? "/calm-medium" : "/medium",</span>
+<span class="cstat-no" title="statement not covered" >            red: isCalmMode ? "/calm-hard" : "/hard",</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >        navigate(routes[difficulty])</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const getLabel = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        return difficulty !== null? "Accept" : "Cancel"</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Modal</span>
+<span class="cstat-no" title="statement not covered" >            isOpen={isOpen}</span>
+<span class="cstat-no" title="statement not covered" >            onRequestClose={onRequestClose}</span>
+<span class="cstat-no" title="statement not covered" >            style={{</span>
+<span class="cstat-no" title="statement not covered" >                ...modalPlayStyles,</span>
+<span class="cstat-no" title="statement not covered" >                content: {</span>
+<span class="cstat-no" title="statement not covered" >                    ...modalPlayStyles.content,</span>
+<span class="cstat-no" title="statement not covered" >                    backgroundColor: isCalmMode ? "#86a17d" : "#1e1e2e",</span>
+<span class="cstat-no" title="statement not covered" >                    color: isCalmMode ? "#ffffff" : "#fff",</span>
+<span class="cstat-no" title="statement not covered" >                },</span>
+<span class="cstat-no" title="statement not covered" >            }}</span>
+<span class="cstat-no" title="statement not covered" >        &gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;button</span>
+<span class="cstat-no" title="statement not covered" >                onClick={onRequestClose}</span>
+<span class="cstat-no" title="statement not covered" >                style={{</span>
+<span class="cstat-no" title="statement not covered" >                    position: "absolute",</span>
+<span class="cstat-no" title="statement not covered" >                    top: "10px",</span>
+<span class="cstat-no" title="statement not covered" >                    right: "10px",</span>
+<span class="cstat-no" title="statement not covered" >                    background: "none",</span>
+<span class="cstat-no" title="statement not covered" >                    border: "none",</span>
+<span class="cstat-no" title="statement not covered" >                    cursor: "pointer",</span>
+<span class="cstat-no" title="statement not covered" >                    color: "#fff",</span>
+<span class="cstat-no" title="statement not covered" >                }}&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;X size={24} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >            &lt;h2 className={`${isCalmMode ? "calm-mode-label" : ""} modal-h2`}&gt;</span>
+<span class="cstat-no" title="statement not covered" >                Select Difficulty</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/h2&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >            &lt;div className="difficulty-selection"&gt;</span>
+<span class="cstat-no" title="statement not covered" >                {difficulties.map(({key, label}) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;button</span>
+<span class="cstat-no" title="statement not covered" >                        key={key}</span>
+<span class="cstat-no" title="statement not covered" >                        onClick={() =&gt; {setDifficulty(key); playClickSound()}}</span>
+<span class="cstat-no" title="statement not covered" >                        onMouseEnter={playHoverSound}</span>
+<span class="cstat-no" title="statement not covered" >                        className={`difficulty-button ${key} ${difficulty === label ? (isCalmMode ? "calm-selected" : "selected") : ""}`}&gt;</span>
+<span class="cstat-no" title="statement not covered" >                        {label}</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >                ))}</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >            &lt;button onClick={handlePlay} className="play-button" onMouseEnter={playHoverSound}&gt;</span>
+<span class="cstat-no" title="statement not covered" >                {getLabel()}</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/Modal&gt;</span>
+<span class="cstat-no" title="statement not covered" >    )</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export default PlayModal</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
