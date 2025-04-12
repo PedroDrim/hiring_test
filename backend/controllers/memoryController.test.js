@@ -150,10 +150,10 @@ describe('POST /api/memory/save', () => {
             })
 
         expect(res.status).toBe(500)
-        expect(res.body.message).toBe('Error getting game data')
+        expect(res.body.message).toBe('Error saving game data')
     })
 
-    it('1.8. Should be able to return 500 if "difficulty" isnt an enum', async () => {
+    it('1.9. Should be able to return 500 if "difficulty" isnt an enum', async () => {
         const res = await request(app)
             .post('/api/memory/save')
             .send({
@@ -166,11 +166,11 @@ describe('POST /api/memory/save', () => {
             })
 
         expect(res.status).toBe(500)
-        expect(res.body.message).toBe('Error getting game data')
+        expect(res.body.message).toBe('Error saving game data')
     })
 })
 
-describe.only('GET /api/memory/score/:difficulty/:uid', () => {
+describe('GET /api/memory/score/:difficulty/:uid', () => {
     beforeEach(async () => {
         await Save.create([
             {
