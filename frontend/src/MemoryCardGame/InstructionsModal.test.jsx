@@ -13,7 +13,7 @@ describe("InstructionsModal", () => {
         cleanup()
     })
 
-    it("1.1. should render the modal when open", () => {
+    it("1.1. Must be able to open the modal and read the instructions", () => {
         const defaultProps = {
             isOpen: true,
             onRequestClose: vi.fn(),
@@ -25,7 +25,7 @@ describe("InstructionsModal", () => {
         expect(screen.getByText("Game Instructions")).not.toBeNull()
     })
 
-    it("1.2. should call onRequestClose and playClickSound when close button is clicked", () => {
+    it("1.2. Must be able to close the modal correctly", () => {
         const defaultProps = {
             isOpen: true,
             onRequestClose: vi.fn(),
